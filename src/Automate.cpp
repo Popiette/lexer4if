@@ -55,7 +55,7 @@ void Automate::popAndDestroySymbole()
 	p_sym.pop_back();
 }
 
-int analyse(){
+int Automate::analyse(){
 	p_sym.push_back(lex->Consulter());
 }
 //------------- Surcharge d'opérateurs -----------------------------------------------------
