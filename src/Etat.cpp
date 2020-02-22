@@ -66,7 +66,7 @@ bool Etat2::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat3);
 				break;
 		case OPENPAR:
-				automate.decalage(s, new Etat4);
+				automate.decalage(s, new Etat2);
 				break;
 		case EXPRESSION:
 				automate.decalage(s, new Etat6);
