@@ -63,6 +63,9 @@ int Automate::analyse(){
 	}
 
 	cout << "OK !" << endl;
+	Entier * resultat = (Entier *) p_sym.back();
+
+	cout << "Resultat : " << resultat->getValeur() << endl;
 
 	return 0;
 }
