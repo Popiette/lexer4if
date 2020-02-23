@@ -82,7 +82,9 @@ bool Etat3::transition(Automate & automate, Symbole * s)
 	switch(*s)
 	{
 		default:
-				automate.reduction(1, s);
+				Entier * val = (Entier *) automate.popSymbole();
+				Entier * e = new Entier(val->getValeur(), EXPRESSION);
+				automate.reduction(1, e);
 				break;
 	}
 	return false;
@@ -152,13 +154,13 @@ bool Etat7::transition(Automate & automate, Symbole * s)
 	switch(*s)
 	{
 		default:
-				Symbole * a;
-			   	Symbole * b; 
-				Symbole * resultat;
+				Entier * a;
+			   	Entier * b; 
+				Entier * resultat;
 				a = (Entier *) automate.popSymbole();
 				automate.popAndDestroySymbole();
 				b = (Entier *) automate.popSymbole();
-				resultat = new Entier(int(*a) + int(*b));
+				resultat = new Entier(a->getValeur() + b->getValeur(), EXPRESSION);
 				automate.reduction(3,resultat);
 				break;
 	}
@@ -170,13 +172,13 @@ bool Etat8::transition(Automate & automate, Symbole * s)
 	switch(*s)
 	{
 		default:
-				Symbole * a;
-				Symbole * b;
-				Symbole * resultat;
+				Entier * a;
+				Entier * b;
+				Entier * resultat;
 				a = (Entier *) automate.popSymbole();
 				automate.popAndDestroySymbole();
 				b = (Entier *) automate.popSymbole();
-				resultat = new Entier(int(*a) * int(*b));
+				resultat = new Entier(a->getValeur() * b->getValeur(), EXPRESSION);
 				automate.reduction(3, resultat);
 				break;
 	}
@@ -188,12 +190,14 @@ bool Etat9::transition(Automate & automate, Symbole * s)
 	switch(*s)
 	{
 		default:
-				Symbole * entier;
+				Entier * entier;
+				Entier * expression;
 				automate.popAndDestroySymbole();
 				entier = (Entier *) automate.popSymbole();
 				automate.popAndDestroySymbole();
 
-				automate.reduction(3, entier);
+				expression = new Entier(entier->getValeur(), EXPRESSION);
+				automate.reduction(3, expression);
 	}
 	return false;
 }

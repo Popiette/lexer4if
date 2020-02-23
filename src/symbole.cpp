@@ -7,11 +7,16 @@ void Symbole::Affiche() {
 
 bool Symbole::isTerminal() const
 {
-	return (ident <= 6); 
+	return (ident <= 4); 
 }
 
 // === Classe Entier ===
 void Entier::Affiche() {
    Symbole::Affiche();
    cout<<"("<<valeur<<")";
+}
+
+int Entier::getValeur() const
+{
+	return valeur;
 }

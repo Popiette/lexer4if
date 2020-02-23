@@ -7,12 +7,11 @@ e-mail :
 //------------- Realisation de la classe <Automate> ( fichier Automate.cpp ) -----------------
 
 //------------- Include système ------------------------------------------------------------
-
+#include <iostream>
 
 //------------- Include personnel ----------------------------------------------------------
 #include "Automate.h"
 #include "Etat.h"
-#include <iostream>
 
 using namespace std;
 
@@ -56,11 +55,22 @@ void Automate::popAndDestroySymbole()
 }
 
 int Automate::analyse(){
-	p_sym.push_back(lex->Consulter());
+
+	bool accept = false;
+	while(!accept)
+	{
+			accept = p_etat.back()->transition(*this, lex->Consulter());
+	}
+
+	cout << "OK !" << endl;
+
+	return 0;
 }
+
 //------------- Surcharge d'opérateurs -----------------------------------------------------
 
 //------------- Constructeurs - Destructeur ------------------------------------------------
+
 Automate::Automate(string expression)
 		: expr(expression)
 {

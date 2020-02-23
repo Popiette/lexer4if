@@ -23,10 +23,11 @@ class Symbole {
 
 class Entier : public Symbole {
    public:
-      Entier(int v) : Symbole(INT), valeur(v) { }
+      Entier(int v, Identificateurs id = INT) : Symbole(id), valeur(v) { }
       ~Entier() { }
       virtual void Affiche();
+	  int getValeur() const;
+
    protected:
       int valeur;
 };
-
