@@ -3,18 +3,12 @@
 #include "lexer.h"
 #include "Automate.h"
 
-int main(void) {
-   string chaine("(1+34)*123");
-/*
-   Lexer l(chaine);
-
-   Symbole * s;
-   while(*(s=l.Consulter())!=FIN) {
-      s->Affiche();
-      cout<<endl;
-      l.Avancer();
-   }
-*/
+int main(int argc, char ** argv) {
+   string chaine;
+   if(argc > 1)
+		   chaine = string(argv[1]);
+   else
+		   chaine = string("(1+34)*123");
    Automate a(chaine);
    a.analyse();
    return 0;
