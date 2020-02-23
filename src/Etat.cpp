@@ -48,7 +48,7 @@ bool Etat1::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat5);
 				break;
 		case FIN:
-				//TODO: être sur qu on fait pas n importe quoi.
+				delete s;
 				return true;
 				
 		default:
@@ -84,6 +84,7 @@ bool Etat3::transition(Automate & automate, Symbole * s)
 		default:
 				Entier * val = (Entier *) automate.popSymbole();
 				Entier * e = new Entier(val->getValeur(), EXPRESSION);
+				delete val;
 				automate.reduction(1, e);
 				break;
 	}
@@ -161,6 +162,8 @@ bool Etat7::transition(Automate & automate, Symbole * s)
 				automate.popAndDestroySymbole();
 				b = (Entier *) automate.popSymbole();
 				resultat = new Entier(a->getValeur() + b->getValeur(), EXPRESSION);
+				delete a;
+				delete b;
 				automate.reduction(3,resultat);
 				break;
 	}
@@ -179,6 +182,8 @@ bool Etat8::transition(Automate & automate, Symbole * s)
 				automate.popAndDestroySymbole();
 				b = (Entier *) automate.popSymbole();
 				resultat = new Entier(a->getValeur() * b->getValeur(), EXPRESSION);
+				delete a;
+				delete b;
 				automate.reduction(3, resultat);
 				break;
 	}
@@ -197,6 +202,7 @@ bool Etat9::transition(Automate & automate, Symbole * s)
 				automate.popAndDestroySymbole();
 
 				expression = new Entier(entier->getValeur(), EXPRESSION);
+				delete entier;
 				automate.reduction(3, expression);
 	}
 	return false;

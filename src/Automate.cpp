@@ -45,6 +45,7 @@ Symbole * Automate::popSymbole()
 {
 	Symbole * s =  p_sym.back();
 	p_sym.pop_back();
+
 	return s;
 }
 
@@ -83,7 +84,12 @@ Automate::Automate(string expression)
 
 Automate::~Automate()
 {
+	delete lex;
+	for( Etat * e : p_etat)
+			delete e;
 
+	for (Symbole * s : p_sym)
+			delete s;
 }
 
 //------------- Methodes protégées ---------------------------------------------------------
