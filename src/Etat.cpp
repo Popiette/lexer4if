@@ -154,6 +154,10 @@ bool Etat7::transition(Automate & automate, Symbole * s)
 {
 	switch(*s)
 	{
+		case MULT:
+				automate.decalage(s, new Etat5);
+				break;
+
 		default:
 				Entier * a;
 			   	Entier * b; 
