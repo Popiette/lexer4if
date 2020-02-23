@@ -71,6 +71,11 @@ int Automate::analyse(){
 	return 0;
 }
 
+void Automate::erreur() const
+{
+	cout << "Invalid expression." << endl;
+	exit(1);	
+}
 //------------- Surcharge d'opérateurs -----------------------------------------------------
 
 //------------- Constructeurs - Destructeur ------------------------------------------------

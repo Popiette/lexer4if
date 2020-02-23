@@ -31,7 +31,7 @@ bool Etat0::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat1);
 				break;
 		default:
-				// TODO : gerer les cas d'erreurs !
+				automate.erreur();
 				break;
 	}
 	return false;
@@ -52,6 +52,7 @@ bool Etat1::transition(Automate & automate, Symbole * s)
 				return true;
 				
 		default:
+				automate.erreur();
 				break;
 
 	}
@@ -72,6 +73,7 @@ bool Etat2::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat6);
 				break;
 		default:
+				automate.erreur();
 				break;
 	}
 	return false;
@@ -105,6 +107,7 @@ bool Etat4::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat7);
 				break;
 		default:
+				automate.erreur();
 				break;
 	}
 
@@ -125,6 +128,7 @@ bool Etat5::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat8);
 				break;
 		default:
+				automate.erreur();
 				break;
 	}
 	return false;
@@ -144,6 +148,7 @@ bool Etat6::transition(Automate & automate, Symbole * s)
 				automate.decalage(s, new Etat9);
 				break;
 		default:
+				automate.erreur();
 				break;
 
 	}

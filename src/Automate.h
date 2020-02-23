@@ -40,6 +40,8 @@ class Automate
 		// Calcule le résultat !
 		int analyse();
 
+		void erreur() const;
+
 		//---- Surchage d'opérateurs ----
 		//--- Constructeurs - Destructeurs ---
 		Automate(std::string expression);
